@@ -1,15 +1,44 @@
 <template>
   <div class="home">
     <PageHead :list="listData"></PageHead>
-    <div class="img-container">
-      <ImgSlide :imgData="imgData"></ImgSlide>
+    <div class="main-contaienr">
+      <div class="img-container">
+        <ImgSlide :imgData="imgData"></ImgSlide>
+      </div>
+      <div class="male-single-container">
+        <SingleProduct :maleSingleData="maleSingleData"></SingleProduct>
+      </div>
+      <div class="new-sletter-container">
+        <NewSletter :newSletterData="newSletterData"></NewSletter>
+      </div>
+      <div class="scan-region">
+        <ScanGoods :scanData="scanData"></ScanGoods>
+      </div>
+      <div class="list-region">
+        <RegionTitle :titData="goodsListData.titData"></RegionTitle>
+        <TopNameScan :topNameData="goodsListData.list"></TopNameScan>
+      </div>
+      <div class="region">
+        <RegionTitle :titData="goodsListData.titData"></RegionTitle>
+        <ImgScroll :imgData="imgScrollData"></ImgScroll>
+        <ImgPage :imgData="imgPageData"></ImgPage>
+      </div>
     </div>
+    <PageFoot></PageFoot>
   </div>
 </template>
 
 <script>
 import PageHead from '@/components/common/page-regions/Header';
-import ImgSlide from '@/components/common/plugins/ImgSlide';
+import PageFoot from '@/components/common/page-regions/Footer';
+import ImgSlide from '@/components/plugins/ImgSlide';
+import ImgScroll from '@/components/plugins/ImgScroll';
+import ImgPage from '@/components/plugins/ImgPage';
+import SingleProduct from '@/components/SingleProduct';
+import NewSletter from '@/components/NewSletter';
+import ScanGoods from '@/components/ScanGoods';
+import TopNameScan from '@/components/base/TopNameScan';
+import RegionTitle from '@/components/base/RegionTitle';
 
 export default {
   name: 'home'
@@ -39,26 +68,445 @@ export default {
       ,imgData:{
         list:[
           {
-            src:"1.jpg"
+            src:"static/images/slide/1.jpg"
             ,id:"1"
           }
           ,{
-            src:"2.jpg"
+            src:"static/images/slide/2.jpg"
             ,id:"2"
           }
           ,{
-            src:"3.jpg"
+            src:"static/images/slide/3.jpg"
             ,id:"3"
           }
+          ,{
+            src:"static/images/slide/4.jpg"
+            ,id:"4"
+          }
+          ,{
+            src:"static/images/slide/5.jpg"
+            ,id:"5"
+          }
+          ,{
+            src:"static/images/slide/6.jpg"
+            ,id:"6"
+          }
+          ,{
+            src:"static/images/slide/7.jpg"
+            ,id:"7"
+          }
+          ,{
+            src:"static/images/slide/8.jpg"
+            ,id:"8"
+          }
         ]
-        ,showSmallImg:false
+        ,showSmallImg:true
         ,showSircle:true
       }
+      ,maleSingleData:[
+        {
+          type:"sell"
+          ,imgSrc:"static/images/slide/1.jpg"
+          ,id:"1"
+          ,name:"stussy"
+          ,price:"¥399"
+          ,originPrice:"¥499"
+        }
+        ,{
+          type:"activity"
+          ,id:"2"
+          ,imgSrc:"static/images/slide/2.jpg"
+        }
+        ,{
+          type:"sell"
+          ,imgSrc:"static/images/slide/3.jpg"
+          ,id:"1"
+          ,name:"stussy"
+          ,price:"¥399"
+          ,originPrice:null
+        }
+        ,{
+          type:"sell"
+          ,imgSrc:"static/images/slide/4.jpg"
+          ,id:"1"
+          ,name:"stussy"
+          ,price:"¥399"
+          ,originPrice:null
+        }
+        ,{
+          type:"sell"
+          ,imgSrc:"static/images/slide/5.jpg"
+          ,id:"1"
+          ,name:"stussy"
+          ,price:"¥399"
+          ,originPrice:null
+        }
+        ,{
+          type:"sell"
+          ,imgSrc:"static/images/slide/6.jpg"
+          ,id:"1"
+          ,name:"stussy"
+          ,price:"¥399"
+          ,originPrice:null
+        }
+        ,{
+          type:"sell"
+          ,imgSrc:"static/images/slide/7.jpg"
+          ,id:"1"
+          ,name:"stussy"
+          ,price:"¥399"
+          ,originPrice:null
+        }
+        ,{
+          type:"sell"
+          ,imgSrc:"static/images/slide/8.jpg"
+          ,id:"1"
+          ,name:"stussy"
+          ,price:"¥399"
+          ,originPrice:null
+        }
+        ,{
+          type:"sell"
+          ,imgSrc:"static/images/slide/2.jpg"
+          ,id:"1"
+          ,name:"stussy"
+          ,price:"¥399"
+          ,originPrice:null
+        }
+        ,{
+          type:"activity"
+          ,id:"2"
+          ,imgSrc:"static/images/slide/1.jpg"
+        }
+        ,{
+          type:"banner"
+          ,id:"2"
+          ,imgSrc:"static/images/slide/5.jpg"
+        }
+      ]
+      ,newSletterData:[
+        {
+          type:"big"
+          ,imgSrc:"static/images/slide/1.jpg"
+          ,id:"1"
+          ,name:"stussy"
+        }
+        ,{
+          type:"small"
+          ,imgSrc:"static/images/slide/1.jpg"
+          ,id:"1"
+          ,name:"stussy"
+        }
+        ,{
+          type:"small"
+          ,imgSrc:"static/images/slide/1.jpg"
+          ,id:"1"
+          ,name:"stussy"
+        }
+        ,{
+          type:"small"
+          ,imgSrc:"static/images/slide/1.jpg"
+          ,id:"1"
+          ,name:"stussy"
+        }
+        ,{
+          type:"small"
+          ,imgSrc:"static/images/slide/1.jpg"
+          ,id:"1"
+          ,name:"stussy"
+        }
+        ,{
+          type:"small"
+          ,imgSrc:"static/images/slide/1.jpg"
+          ,id:"1"
+          ,name:"stussy"
+        }
+        ,{
+          type:"small"
+          ,imgSrc:"static/images/slide/1.jpg"
+          ,id:"1"
+          ,name:"stussy"
+        }
+        ,{
+          type:"big"
+          ,imgSrc:"static/images/slide/1.jpg"
+          ,id:"1"
+          ,name:"stussy"
+        }
+      ]
+      ,scanData:{
+        title:"钢板"
+        ,discountData:[
+          {
+            type:"big"
+            ,imgSrc:"static/images/slide/1.jpg"
+            ,id:"1"
+          }
+          ,{
+            type:"small"
+            ,imgSrc:"static/images/slide/2.jpg"
+            ,id:"2"
+          }
+        ]
+        ,topData:[
+          {
+            type:"big"
+            ,imgSrc:"static/images/slide/1.jpg"
+            ,id:"1"
+          }
+          ,{
+            type:"small"
+            ,imgSrc:"static/images/slide/2.jpg"
+            ,id:"1"
+            ,name:"螺丝刀"
+          }
+          ,{
+            type:"small"
+            ,imgSrc:"static/images/slide/2.jpg"
+            ,id:"1"
+            ,name:"螺丝刀"
+          }
+          ,{
+            type:"small"
+            ,imgSrc:"static/images/slide/2.jpg"
+            ,id:"1"
+            ,name:"螺丝刀"
+          }
+          ,{
+            type:"big"
+            ,imgSrc:"static/images/slide/1.jpg"
+            ,id:"1"
+          }
+          ,{
+            type:"small"
+            ,imgSrc:"static/images/slide/2.jpg"
+            ,id:"1"
+            ,name:"螺丝刀"
+          }
+          ,{
+            type:"small"
+            ,imgSrc:"static/images/slide/2.jpg"
+            ,id:"1"
+            ,name:"螺丝刀"
+          }
+          ,{
+            type:"small"
+            ,imgSrc:"static/images/slide/2.jpg"
+            ,id:"1"
+            ,name:"螺丝刀"
+          }
+        ]
+        ,linkData:[
+          {
+            name:"钢板"
+            ,src:"###"
+          }
+          ,{
+            name:"钢板"
+            ,src:"###"
+          }
+          ,{
+            name:"钢板"
+            ,src:"###"
+          }
+          ,{
+            name:"钢板"
+            ,src:"###"
+          }
+        ]
+        ,topNameData:[
+          {
+            imgSrc:"static/images/slide/1.jpg"
+            ,id:"1"
+            ,name:"水管"
+            ,des:"加厚水管"
+          }
+          ,{
+            imgSrc:"static/images/slide/1.jpg"
+            ,id:"1"
+            ,name:"水管"
+            ,des:"加厚水管"
+          }
+          ,{
+            imgSrc:"static/images/slide/1.jpg"
+            ,id:"1"
+            ,name:"水管"
+            ,des:"加厚水管"
+          }
+          ,{
+            imgSrc:"static/images/slide/1.jpg"
+            ,id:"1"
+            ,name:"水管"
+            ,des:"加厚水管"
+          }
+          ,{
+            imgSrc:"static/images/slide/1.jpg"
+            ,id:"1"
+            ,name:"水管"
+            ,des:"加厚水管"
+          }
+        ]
+      }
+      ,goodsListData:{
+        titData:{
+          title:"人气单品"
+          ,src:"###"
+        }
+        ,list:[
+          {
+            imgSrc:"static/images/slide/1.jpg"
+            ,id:"1"
+            ,name:"水管"
+            ,des:"加厚水管"
+          }
+          ,{
+            imgSrc:"static/images/slide/1.jpg"
+            ,id:"1"
+            ,name:"水管"
+            ,des:"加厚水管"
+          }
+          ,{
+            imgSrc:"static/images/slide/1.jpg"
+            ,id:"1"
+            ,name:"水管"
+            ,des:"加厚水管"
+          }
+          ,{
+            imgSrc:"static/images/slide/1.jpg"
+            ,id:"1"
+            ,name:"水管"
+            ,des:"加厚水管"
+          }
+          ,{
+            imgSrc:"static/images/slide/1.jpg"
+            ,id:"1"
+            ,name:"水管"
+            ,des:"加厚水管"
+          }
+        ]
+      }
+      ,imgScrollData:[
+        {
+          src:"static/images/slide/1.jpg"
+          ,id:"1"
+        }
+        ,{
+          src:"static/images/slide/2.jpg"
+          ,id:"2"
+        }
+        ,{
+          src:"static/images/slide/3.jpg"
+          ,id:"3"
+        }
+        ,{
+          src:"static/images/slide/4.jpg"
+          ,id:"4"
+        }
+        ,{
+          src:"static/images/slide/5.jpg"
+          ,id:"5"
+        }
+        ,{
+          src:"static/images/slide/6.jpg"
+          ,id:"6"
+        }
+      ]
+      ,imgPageData:[
+        {
+          src:"static/images/slide/1.jpg"
+          ,id:"1"
+        }
+        ,{
+          src:"static/images/slide/1.jpg"
+          ,id:"2"
+        }
+        ,{
+          src:"static/images/slide/1.jpg"
+          ,id:"3"
+        }
+        ,{
+          src:"static/images/slide/1.jpg"
+          ,id:"4"
+        }
+        ,{
+          src:"static/images/slide/1.jpg"
+          ,id:"5"
+        }
+        ,{
+          src:"static/images/slide/1.jpg"
+          ,id:"6"
+        }
+        ,{
+          src:"static/images/slide/1.jpg"
+          ,id:"1"
+        }
+        ,{
+          src:"static/images/slide/1.jpg"
+          ,id:"2"
+        }
+        ,{
+          src:"static/images/slide/1.jpg"
+          ,id:"3"
+        }
+        ,{
+          src:"static/images/slide/1.jpg"
+          ,id:"4"
+        }
+        ,{
+          src:"static/images/slide/1.jpg"
+          ,id:"1"
+        }
+        ,{
+          src:"static/images/slide/2.jpg"
+          ,id:"2"
+        }
+        ,{
+          src:"static/images/slide/3.jpg"
+          ,id:"3"
+        }
+        ,{
+          src:"static/images/slide/4.jpg"
+          ,id:"4"
+        }
+        ,{
+          src:"static/images/slide/5.jpg"
+          ,id:"5"
+        }
+        ,{
+          src:"static/images/slide/6.jpg"
+          ,id:"6"
+        }
+        ,{
+          src:"static/images/slide/1.jpg"
+          ,id:"1"
+        }
+        ,{
+          src:"static/images/slide/2.jpg"
+          ,id:"2"
+        }
+        ,{
+          src:"static/images/slide/3.jpg"
+          ,id:"3"
+        }
+        ,{
+          src:"static/images/slide/4.jpg"
+          ,id:"4"
+        }
+      ]
     }
+    
   }
   ,components:{
     PageHead
+    ,PageFoot
     ,ImgSlide
+    ,SingleProduct
+    ,NewSletter
+    ,ScanGoods
+    ,TopNameScan
+    ,RegionTitle
+    ,ImgScroll
+    ,ImgPage
   }
 
 }
@@ -66,9 +514,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .img-container{
+  .main-contaienr{
     width: 1150px;
+    margin: 0 auto;
+  }
+  .img-container{
     margin: 10px auto;
   }
-
+  .male-single-container,
+  .new-sletter-container,
+  .scan-region{
+    margin-top: 80px;
+  }
+  .list-region .region-tit,
+  .region .region-tit{
+    margin: 80px auto 40px;
+  }
 </style>
